@@ -18,7 +18,7 @@ public class DetalhesDoTopicoDto {
 	private String nomeAutor;
 	private StatusTopico status;
 	private List<RespostaDto> respostas;
-	
+
 	public DetalhesDoTopicoDto(Topico topico) {
 		this.id = topico.getId();
 		this.titulo = topico.getTitulo();
@@ -27,6 +27,35 @@ public class DetalhesDoTopicoDto {
 		this.nomeAutor = topico.getAutor().getNome();
 		this.status = topico.getStatus();
 		this.respostas = new ArrayList<>();
-		this.respostas.addAll(topico.getRespostas().stream().map(RespostaDto:: new).collect(Collectors.toList()));
+		this.respostas.addAll(topico.getRespostas().stream().map(RespostaDto::new).collect(Collectors.toList()));
 	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public String getTitulo() {
+		return titulo;
+	}
+
+	public String getMensagem() {
+		return mensagem;
+	}
+
+	public LocalDateTime getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public String getNomeAutor() {
+		return nomeAutor;
+	}
+
+	public StatusTopico getStatus() {
+		return status;
+	}
+
+	public List<RespostaDto> getRespostas() {
+		return respostas;
+	}
+
 }
